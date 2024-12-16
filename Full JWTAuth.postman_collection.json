@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "51ec1d07-dd6a-43d2-bbca-28df0463225b",
+		"name": "Full JWTAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40066235"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"divyaprakashara9999@gmail.com\",\r\n    \"name\":\"Bittu\",\r\n    \"tc\":\"True\",\r\n    \"password\":\"qwer1234\",\r\n    \"password2\":\"qwer1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"register",
+						""
+					]
+				},
+				"description": "The API endpoint allows users to register by sending a POST request to the specified URL. The request should include the user's email, name, password, and a confirmation of terms and conditions. Upon successful registration, the response will follow the JSON schema format."
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"codingcharm@gmail.com\",\r\n    \"password\":\"qwer1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"login",
+						""
+					]
+				},
+				"description": "The API endpoint allows users to log in by sending a POST request to the specified URL. The request should include the user's email and password in the request body as a JSON object.\n\n### Request Body\n\n- email (string): The email address of the user.\n    \n- password (string): The password of the user.\n    \n\n### Response\n\nThe response of this request is a JSON object representing the user's login status and authentication token. The JSON schema for the response can be documented as follows:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    },\n    \"token\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MzQyMDYyLCJpYXQiOjE3MzQzMzQ4NjIsImp0aSI6IjgxNWFlOTE1NjllYjQxN2Y4NjY2N2U3MmVhOWJkZmZjIiwidXNlcl9pZCI6Mn0.2j0GdzAxTf2HicDiCeYf9zufzpMbtrLQ00o4KbRPP9c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/profile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"profile",
+						""
+					]
+				},
+				"description": "This endpoint makes an HTTP GET request to retrieve the profile of the user. The response of this request can be documented as a JSON schema."
+			},
+			"response": []
+		},
+		{
+			"name": "change password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MzQ3MjIzLCJpYXQiOjE3MzQzNDAwMjMsImp0aSI6IjA2MmJlZDhhMWJhMTRkNTFhN2FkNTY5MjQxZTM4YTM4IiwidXNlcl9pZCI6Mn0.Bd6rC6_O8UwemVa7yOJcPgBNqWyMqbAVOkQRLgmmMqE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"qwer123\",\r\n    \"password2\":\"qwer123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/change-password/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"change-password",
+						""
+					]
+				},
+				"description": "### Change User Password\n\nThis endpoint is used to change the password for a user.\n\n#### Request Body\n\n- `password` (string, required): The new password for the user.\n    \n- `password2` (string, required): Confirmation of the new password.\n    \n\n#### Response\n\nThe response of this request follows the JSON schema below:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "send reset password email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"codingcharm@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/send-reset-password-email/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"send-reset-password-email",
+						""
+					]
+				},
+				"description": "The API endpoint \"[http://127.0.0.1:8000/api/user/send-reset-password-email/\"](http://127.0.0.1:8000/api/user/send-reset-password-email/) is a POST request used to send a reset password email to the user. The request requires a JSON payload in the raw request body type with the \"email\" key to specify the user's email address.\n\n### Response\n\nThe response of this request follows the JSON schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```\n\nThe response contains a \"message\" property of type string, which provides information about the status of the reset password email sending process."
+			},
+			"response": []
+		},
+		{
+			"name": "reset password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"qwer1234\",\r\n    \"password2\":\"qwer1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/reset-password/Mg/ci511g-92815333a955e27f15b95dd3a7a54f36/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"reset-password",
+						"Mg",
+						"ci511g-92815333a955e27f15b95dd3a7a54f36",
+						""
+					]
+				},
+				"description": "This endpoint is used to reset the password for a user. The HTTP POST request is sent to the specified URL with the user's unique identifier and a payload containing the new password and its confirmation.\n\n### Request Body\n\n- password (string, required): The new password for the user.\n    \n- password2 (string, required): Confirmation of the new password.\n    \n\n### Response\n\nThe response of this request is a JSON schema representing the structure of the response data. The schema should include the properties and data types of the response object returned by the API.\n\nFor example:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```"
+			},
+			"response": []
+		}
+	]
+}
